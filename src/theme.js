@@ -1,5 +1,6 @@
 // src/theme.js
 import { extendTheme } from "@chakra-ui/react";
+
 const theme = extendTheme({
   styles: {
     global: {
@@ -8,6 +9,10 @@ const theme = extendTheme({
         color: "whiteAlpha.900",
         fontFamily: "heading",
         lineHeight: "tall",
+      },
+      "*::selection": {
+        background: "brand.500",
+        color: "white",
       },
     },
   },
@@ -30,5 +35,9 @@ const theme = extendTheme({
     body: `"Inter", sans-serif`,
   },
 });
-
-export default theme;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <ChakraProvider theme={theme}>
+    <App />
+  </ChakraProvider>
+)
